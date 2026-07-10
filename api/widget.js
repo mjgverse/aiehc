@@ -1,8 +1,19 @@
+module.exports = async (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.send(`<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Widget</title>
+</head>
+<body>
+  <script>
 (function () {
   const API_URL = "https://aiehc.vercel.app/api/chat";
 
   const style = document.createElement('style');
-  style.textContent = `
+  style.textContent = \`
     #ehc-chat-bubble {
       position: fixed; bottom: 24px; right: 24px;
       width: 58px; height: 58px; border-radius: 50%;
@@ -61,17 +72,17 @@
       padding: 0 16px; font-weight: 600; font-size: 13px; cursor: pointer; margin-left: 8px;
     }
     #ehc-chat-send:hover { opacity: 0.88; }
-  `;
+  \`;
   document.head.appendChild(style);
 
   const bubble = document.createElement('div');
   bubble.id = 'ehc-chat-bubble';
-  bubble.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="#f4e9c9" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
+  bubble.innerHTML = \`<svg viewBox="0 0 24 24" fill="none" stroke="#f4e9c9" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>\`;
   document.body.appendChild(bubble);
 
   const win = document.createElement('div');
   win.id = 'ehc-chat-window';
-  win.innerHTML = `
+  win.innerHTML = \`
     <div id="ehc-chat-header">
       <div>Equity Holding Corp<span class="sub">Ask us anything</span></div>
       <div id="ehc-chat-close">&times;</div>
@@ -83,7 +94,7 @@
       <input id="ehc-chat-input" placeholder="Type your question..." />
       <button id="ehc-chat-send">Send</button>
     </div>
-  `;
+  \`;
   document.body.appendChild(win);
 
   bubble.addEventListener('click', () => win.classList.toggle('open'));
@@ -94,7 +105,7 @@
 
   function addMessage(text, sender) {
     const div = document.createElement('div');
-    div.className = `ehc-msg ${sender}`;
+    div.className = \`ehc-msg \${sender}\`;
     div.textContent = text;
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -125,3 +136,7 @@
   document.getElementById('ehc-chat-send').addEventListener('click', sendMessage);
   inputEl.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
 })();
+  </script>
+</body>
+</html>\`);
+};
