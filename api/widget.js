@@ -34,7 +34,7 @@ module.exports = (req, res) => {
 
   const win = document.createElement('div');
   win.id = 'ehc-chat-window';
-  win.innerHTML = '<div id="ehc-chat-header"><div>Equity Holding Corp<span class="sub">Ask us anything</span></div><div id="ehc-chat-close">&times;</div></div><div id="ehc-chat-messages"><div class="ehc-msg bot">Hi, I am here to help with questions about our trust services. What would you like to know?</div></div><div id="ehc-chat-input-row"><input id="ehc-chat-input" placeholder="Type your question..." /><button id="ehc-chat-send">Send</button></div>';
+  win.innerHTML = '<div id="ehc-chat-header"><div>Equity Holding Corp<span class="sub">Ask us anything</span></div><div id="ehc-chat-close">&times;</div></div><div id="ehc-chat-messages"><div class="ehc-msg bot">Hi, I\'m Grace, an AI assistant here to help with questions about Equity Holding Corp\'s trust services. What would you like to know?</div></div><div id="ehc-chat-input-row"><input id="ehc-chat-input" placeholder="Type your question..." /><button id="ehc-chat-send">Send</button></div>';
   document.body.appendChild(win);
 
   bubble.addEventListener('click', function(){ win.classList.toggle('open'); });
